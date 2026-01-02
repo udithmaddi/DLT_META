@@ -1,0 +1,9 @@
+{
+  "expect_or_drop": {
+    "valid_transaction_id": "transaction_id IS NOT NULL",
+    "valid_amount": "amount > 0"
+  },
+  "expect_or_quarantine": {
+    "quarantine_rule": "transaction_id IS NULL OR amount <= 0"
+  }
+}

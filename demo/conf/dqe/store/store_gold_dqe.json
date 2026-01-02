@@ -1,0 +1,6 @@
+{
+  "expect_or_fail": {
+    "valid_store_id": "store_id IS NOT NULL",
+    "valid_location": "location IS NOT NULL"
+  }
+}

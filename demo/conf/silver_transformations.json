@@ -1,0 +1,37 @@
+[
+  {
+    "target_table": "customers",
+    "select_exp": [
+      "customer_id",
+      "customer_name",
+      "age",
+      "email"
+    ]
+  },
+  {
+    "target_table": "transactions",
+    "select_exp": [
+      "transaction_id",
+      "customer_id",
+      "product_id",
+      "amount",
+      "date"
+    ]
+  },
+  {
+    "target_table": "products",
+    "select_exp": [
+      "product_id",
+      "product_name",
+      "price"
+    ]
+  },
+  {
+    "target_table": "stores",
+    "select_exp": [
+      "store_id",
+      "store_name",
+      "location"
+    ]
+  }
+]

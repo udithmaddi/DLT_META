@@ -1,0 +1,66 @@
+[
+    {
+        "target_table": "customers_gold",
+        "sources": [
+            {
+                "reference_name": "customers_silver",
+                "source_table_dev": "dlt_meta.silver_v1.customers",
+                "is_streaming": "false"
+            }
+        ],
+        "dlt_views": [
+            {
+                "reference_name": "customers_view",
+                "sql_condition": "select customer_id, customer_name, email, age, floor(age/10)*10 as age_group from customers_silver"
+            }
+        ]
+    },
+    {
+        "target_table": "transactions_gold",
+        "sources": [
+            {
+                "reference_name": "transactions_silver",
+                "source_table_dev": "dlt_meta.silver_v1.transactions",
+                "is_streaming": "false"
+            }
+        ],
+        "dlt_views": [
+            {
+                "reference_name": "transactions_view",
+                "sql_condition": "select transaction_id, date, customer_id, product_id, year(date) as sales_year, month(date) as sales_month from transactions_silver"
+            }
+        ]
+    },
+    {
+        "target_table": "products_gold",
+        "sources": [
+            {
+                "reference_name": "products_silver",
+                "source_table_dev": "dlt_meta.silver_v1.products",
+                "is_streaming": "false"
+            }
+        ],
+        "dlt_views": [
+            {
+                "reference_name": "products_view",
+                "sql_condition": "select product_id, product_name, price, case when price > 100 then 'Premium' when price > 50 then 'Mid-Range' else 'Economy' end as product_category from products_silver"
+            }
+        ]
+    },
+    {
+        "target_table": "stores_gold",
+        "sources": [
+            {
+                "reference_name": "stores_silver",
+                "source_table_dev": "dlt_meta.silver_v1.stores",
+                "is_streaming": "false"
+            }
+        ],
+        "dlt_views": [
+            {
+                "reference_name": "stores_view",
+                "sql_condition": "select store_id, store_name, location, upper(substring(location, 1, 3)) as store_code from stores_silver"
+            }
+        ]
+    }
+]

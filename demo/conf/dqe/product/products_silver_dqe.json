@@ -1,0 +1,9 @@
+{
+  "expect_or_drop": {
+    "valid_product_id": "product_id IS NOT NULL",
+    "valid_price": "price > 0"
+  },
+  "expect_or_quarantine": {
+    "quarantine_rule": "product_id IS NULL OR price <= 0"
+  }
+}
