@@ -490,7 +490,11 @@ class OnboardDataflowspec:
         # Serialize sources and dlt_views to JSON strings
         gold_dataflow_spec_df = (
             gold_data_flow_spec_df.drop("target_table")
+<<<<<<< HEAD
             .drop("target_partition_cols")
+=======
+            .withColumnRenamed("target_partition_cols", "partitionColumns")
+>>>>>>> b46bd763f1586b7d912d3af02db6864e51574c33
             .withColumn("sources", f.to_json(f.col("sources")))
             .withColumn("dltViews", f.to_json(f.col("dlt_views")))
             .drop("dlt_views")
