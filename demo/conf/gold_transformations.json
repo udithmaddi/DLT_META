@@ -6,29 +6,21 @@
                 "reference_name": "customers_silver",
                 "source_table_dev": "dlt_meta.silver_v1.customers",
                 "is_streaming": "false"
-<<<<<<< HEAD
             },
             {
                 "reference_name": "transactions_silver",
                 "source_table_dev": "dlt_meta.silver_v1.transactions",
                 "is_streaming": "false"
-=======
->>>>>>> b46bd763f1586b7d912d3af02db6864e51574c33
             }
         ],
         "dlt_views": [
             {
-<<<<<<< HEAD
                 "reference_name": "customer_transaction_summary_vw",
                 "sql_condition": "select c.customer_id, c.customer_name, c.email, c.age, floor(c.age/10)*10 as age_group, count(t.transaction_id) as transaction_count, sum(case when t.transaction_id is not null then 1 else 0 end) as total_transactions from customers_silver c left join transactions_silver t on c.customer_id = t.customer_id group by c.customer_id, c.customer_name, c.email, c.age"
             },
             {
                 "reference_name": "customers_view",
                 "sql_condition": "select customer_id, customer_name, email, age, age_group, transaction_count, total_transactions from customer_transaction_summary_vw"
-=======
-                "reference_name": "customers_view",
-                "sql_condition": "select customer_id, customer_name, email, age, floor(age/10)*10 as age_group from customers_silver"
->>>>>>> b46bd763f1586b7d912d3af02db6864e51574c33
             }
         ]
     },
@@ -39,7 +31,6 @@
                 "reference_name": "transactions_silver",
                 "source_table_dev": "dlt_meta.silver_v1.transactions",
                 "is_streaming": "false"
-<<<<<<< HEAD
             },
             {
                 "reference_name": "products_silver",
@@ -50,23 +41,16 @@
                 "reference_name": "customers_silver",
                 "source_table_dev": "dlt_meta.silver_v1.customers",
                 "is_streaming": "false"
-=======
->>>>>>> b46bd763f1586b7d912d3af02db6864e51574c33
             }
         ],
         "dlt_views": [
             {
-<<<<<<< HEAD
                 "reference_name": "transaction_details_vw",
                 "sql_condition": "select t.transaction_id, t.date, t.customer_id, t.product_id, year(t.date) as sales_year, month(t.date) as sales_month, p.product_name, p.price, c.customer_name from transactions_silver t left join products_silver p on t.product_id = p.product_id left join customers_silver c on t.customer_id = c.customer_id"
             },
             {
                 "reference_name": "transactions_view",
                 "sql_condition": "select transaction_id, date, customer_id, product_id, sales_year, sales_month, product_name, price, customer_name from transaction_details_vw"
-=======
-                "reference_name": "transactions_view",
-                "sql_condition": "select transaction_id, date, customer_id, product_id, year(date) as sales_year, month(date) as sales_month from transactions_silver"
->>>>>>> b46bd763f1586b7d912d3af02db6864e51574c33
             }
         ]
     },
@@ -77,29 +61,21 @@
                 "reference_name": "products_silver",
                 "source_table_dev": "dlt_meta.silver_v1.products",
                 "is_streaming": "false"
-<<<<<<< HEAD
             },
             {
                 "reference_name": "transactions_silver",
                 "source_table_dev": "dlt_meta.silver_v1.transactions",
                 "is_streaming": "false"
-=======
->>>>>>> b46bd763f1586b7d912d3af02db6864e51574c33
             }
         ],
         "dlt_views": [
             {
-<<<<<<< HEAD
                 "reference_name": "product_sales_summary_vw",
                 "sql_condition": "select p.product_id, p.product_name, p.price, case when p.price > 100 then 'Premium' when p.price > 50 then 'Mid-Range' else 'Economy' end as product_category, count(t.transaction_id) as total_sales, sum(case when t.transaction_id is not null then 1 else 0 end) as sales_count from products_silver p left join transactions_silver t on p.product_id = t.product_id group by p.product_id, p.product_name, p.price"
             },
             {
                 "reference_name": "products_view",
                 "sql_condition": "select product_id, product_name, price, product_category, total_sales, sales_count from product_sales_summary_vw"
-=======
-                "reference_name": "products_view",
-                "sql_condition": "select product_id, product_name, price, case when price > 100 then 'Premium' when price > 50 then 'Mid-Range' else 'Economy' end as product_category from products_silver"
->>>>>>> b46bd763f1586b7d912d3af02db6864e51574c33
             }
         ]
     },

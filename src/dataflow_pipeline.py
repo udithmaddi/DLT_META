@@ -25,12 +25,9 @@ class DataflowPipeline:
     Returns:
         [type]: [description]
     """
-<<<<<<< HEAD
     
     # Class-level set to keep track of created DLT views globally for the pipeline execution
     _created_views = set()
-=======
->>>>>>> b46bd763f1586b7d912d3af02db6864e51574c33
 
     def __init__(self, spark, dataflow_spec, view_name, view_name_quarantine=None,
                  custom_transform_func: Optional[Callable] = None,
@@ -172,14 +169,11 @@ class DataflowPipeline:
                 comment=f"input dataset view for {self.view_name}",
             )
         elif isinstance(self.dataflowSpec, GoldDataflowSpec) and self.is_create_view():
-<<<<<<< HEAD
             # Create separate DLT views for sources and intermediate transformations first
             # This ensures they appear as distinct nodes in the DLT lineage graph
             self._create_gold_source_views()
             self._create_gold_dlt_views()
             
-=======
->>>>>>> b46bd763f1586b7d912d3af02db6864e51574c33
             dlt.view(
                 self.read_gold,
                 name=self.view_name,
@@ -334,7 +328,6 @@ class DataflowPipeline:
         else:
             self._write_standard_table(is_bronze=False)
 
-<<<<<<< HEAD
     def _create_gold_source_views(self):
         """Create DLT views for gold sources."""
         gold_spec: GoldDataflowSpec = self.dataflowSpec
@@ -418,8 +411,6 @@ class DataflowPipeline:
                     )
                     DataflowPipeline._created_views.add(view_name)
 
-=======
->>>>>>> b46bd763f1586b7d912d3af02db6864e51574c33
     def read_bronze(self) -> DataFrame:
         """Read Bronze Table."""
         logger.info("In read_bronze func")
@@ -541,7 +532,6 @@ class DataflowPipeline:
     def read_gold(self) -> DataFrame:
         """Read Gold Table."""
         gold_spec: GoldDataflowSpec = self.dataflowSpec
-<<<<<<< HEAD
         
         # 1. Try to read from the last intermediate DLT view (created in read())
         if gold_spec.dltViews:
@@ -570,45 +560,6 @@ class DataflowPipeline:
         
         # 3. Last resort: Raise error
         raise Exception("No sources or dlt_views found in gold dataflow spec to read from")
-=======
-        if gold_spec.sources:
-            sources_list = json.loads(gold_spec.sources)
-            for source in sources_list:
-                source_table_name = None
-                if "source_table" in source:
-                    source_table_name = source["source_table"]
-                elif "source_table_dev" in source:
-                    source_table_name = source["source_table_dev"]
-                elif "source_table_prod" in source:
-                    source_table_name = source["source_table_prod"]
-
-                if not source_table_name:
-                    raise Exception(f"Source table name not found in source definition: {source}")
-
-                is_streaming = True
-                if "is_streaming" in source:
-                    is_streaming_val = source["is_streaming"]
-                    if isinstance(is_streaming_val, str):
-                        if is_streaming_val.lower() == "false":
-                            is_streaming = False
-                    elif isinstance(is_streaming_val, bool):
-                        is_streaming = is_streaming_val
-                
-                reader = self._create_dataframe_reader(is_streaming=is_streaming)
-                df_source = reader.table(source_table_name)
-                
-                if "reference_name" in source:
-                    df_source.createOrReplaceTempView(source["reference_name"])
-
-        dlt_views = json.loads(gold_spec.dltViews)
-        df = None
-        for view in dlt_views:
-            sql = view['sql_condition']
-            df = self.spark.sql(sql)
-            if view.get('reference_name'):
-                df.createOrReplaceTempView(view['reference_name'])
-        return self.apply_custom_transform_fun(df)
->>>>>>> b46bd763f1586b7d912d3af02db6864e51574c33
 
     def _is_gold_streaming(self) -> bool:
         """Check if Gold layer is streaming."""
