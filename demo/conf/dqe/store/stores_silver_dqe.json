@@ -1,0 +1,9 @@
+{
+  "expect_or_drop": {
+    "valid_store_id": "store_id IS NOT NULL",
+    "valid_location": "location IS NOT NULL"
+  },
+  "expect_or_quarantine": {
+    "quarantine_rule": "store_id IS NULL OR location IS NULL"
+  }
+}

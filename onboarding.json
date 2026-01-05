@@ -1,0 +1,214 @@
+[
+   {
+      "data_flow_id": "100",
+      "data_flow_group": "A1",
+      "source_system": "mysql",
+      "source_format": "cloudFiles",
+      "source_details": {
+         "source_database": "customers",
+         "source_table": "customers",
+         "source_path_prod": "/Volumes/dlt_meta/raw/raw_files/data/customers/",
+         "source_schema_path": "/Volumes/dlt_meta/raw/raw_files/ddl/customers.ddl"
+      },
+      "bronze_catalog_prod": "dlt_meta",
+      "bronze_database_prod": "bronze_v1",
+      "bronze_table": "customers",
+      "bronze_table_comment": "customers bronze table",
+      "bronze_reader_options": {
+         "cloudFiles.format": "csv",
+         "cloudFiles.rescuedDataColumn": "_rescued_data",
+         "cloudFiles.schemaEvolutionMode": "none",
+         "header": "true"
+      },
+      "bronze_cluster_by": [
+         "customer_id"
+      ],
+      "bronze_data_quality_expectations_json_prod": "/Volumes/dlt_meta/raw/raw_files/config/dqe/customer/customers.json",
+      "bronze_catalog_quarantine_prod": "dlt_meta",
+      "bronze_database_quarantine_prod": "bronze_v1",
+      "bronze_quarantine_table": "customers_quarantine",
+      "bronze_quarantine_table_comment": "customers quarantine table",
+      "bronze_quarantine_table_cluster_by": [
+         "customer_id"
+      ],
+      "silver_catalog_prod": "dlt_meta",
+      "silver_database_prod": "silver_v1",
+      "silver_table": "customers",
+      "silver_table_comment": "customers silver table",
+      "silver_cdc_apply_changes": {
+         "keys": [
+            "customer_id"
+         ],
+         "sequence_by": "customer_id",
+         "scd_type": "1"
+      },
+      "silver_cluster_by": [
+         "customer_id"
+      ],
+      "silver_transformation_json_prod": "/Volumes/dlt_meta/raw/raw_files/config/transformation/silver_transformations.json",
+      "silver_data_quality_expectations_json_prod": "/Volumes/dlt_meta/raw/raw_files/config/dqe/customer/customers_silver_dqe.json",
+      "gold_catalog_prod": "dlt_meta",
+      "gold_database_prod": "gold_v1",
+      "gold_table": "customers_gold",
+      "gold_transformation_json_prod": "/Volumes/dlt_meta/raw/raw_files/config/transformation/gold_transformations.json",
+      "gold_transformation_json_dev": "/Volumes/dlt_meta/raw/raw_files/config/transformation/gold_transformations.json",
+      "gold_data_quality_expectations_json_prod": "/Volumes/dlt_meta/raw/raw_files/config/dqe/customer/customer_gold_dqe.json",
+      "gold_data_quality_expectations_json_dev": "/Volumes/dlt_meta/raw/raw_files/config/dqe/customer/customer_gold_dqe.json"
+   },
+   {
+      "data_flow_id": "101",
+      "data_flow_group": "A1",
+      "source_system": "mysql",
+      "source_format": "cloudFiles",
+      "source_details": {
+         "source_database": "transactions",
+         "source_table": "transactions",
+         "source_path_prod": "/Volumes/dlt_meta/raw/raw_files/data/transactions/",
+         "source_schema_path": "/Volumes/dlt_meta/raw/raw_files/ddl/transactions.ddl"
+      },
+      "bronze_catalog_prod": "dlt_meta",
+      "bronze_database_prod": "bronze_v1",
+      "bronze_table": "transactions",
+      "bronze_table_comment": "transactions bronze table",
+      "bronze_reader_options": {
+         "cloudFiles.format": "csv",
+         "cloudFiles.rescuedDataColumn": "_rescued_data",
+         "cloudFiles.schemaEvolutionMode": "none",
+         "header": "true"
+      },
+      "bronze_cluster_by": [
+         "transaction_id"
+      ],
+      "bronze_data_quality_expectations_json_prod": "/Volumes/dlt_meta/raw/raw_files/config/dqe/transaction/transactions.json",
+      "bronze_catalog_quarantine_prod": "dlt_meta",
+      "bronze_database_quarantine_prod": "bronze_v1",
+      "bronze_quarantine_table": "transactions_quarantine",
+      "bronze_quarantine_table_comment": "transactions bronze quarantine table",
+      "bronze_quarantine_table_cluster_by": [
+         "transaction_id"
+      ],
+      "silver_catalog_prod": "dlt_meta",
+      "silver_database_prod": "silver_v1",
+      "silver_table": "transactions",
+      "silver_table_comment": "transactions silver table",
+      "silver_cdc_apply_changes": {
+         "keys": [
+            "transaction_id"
+         ],
+         "sequence_by": "transaction_id",
+         "scd_type": "1"
+      },
+      "silver_cluster_by": [
+         "transaction_id"
+      ],
+      "silver_transformation_json_prod": "/Volumes/dlt_meta/raw/raw_files/config/transformation/silver_transformations.json",
+      "silver_data_quality_expectations_json_prod": "/Volumes/dlt_meta/raw/raw_files/config/dqe/transaction/transactions_silver_dqe.json",
+      "gold_catalog_prod": "dlt_meta",
+      "gold_database_prod": "gold_v1",
+      "gold_table": "transactions_gold",
+      "gold_transformation_json_prod": "/Volumes/dlt_meta/raw/raw_files/config/transformation/gold_transformations.json",
+      "gold_transformation_json_dev": "/Volumes/dlt_meta/raw/raw_files/config/transformation/gold_transformations.json",
+      "gold_data_quality_expectations_json_prod": "/Volumes/dlt_meta/raw/raw_files/config/dqe/transaction/transaction_gold_dqe.json",
+      "gold_data_quality_expectations_json_dev": "/Volumes/dlt_meta/raw/raw_files/config/dqe/transaction/transaction_gold_dqe.json"
+   },
+   {
+      "data_flow_id": "103",
+      "data_flow_group": "A1",
+      "source_system": "mysql",
+      "source_format": "cloudFiles",
+      "source_details": {
+         "source_database": "products",
+         "source_table": "products",
+         "source_path_prod": "/Volumes/dlt_meta/raw/raw_files/data/products/",
+         "source_schema_path": "/Volumes/dlt_meta/raw/raw_files/ddl/products.ddl"
+      },
+      "bronze_catalog_prod": "dlt_meta",
+      "bronze_database_prod": "bronze_v1",
+      "bronze_table": "products",
+      "bronze_table_comment": "products bronze table",
+      "bronze_reader_options": {
+         "cloudFiles.format": "csv",
+         "cloudFiles.rescuedDataColumn": "_rescued_data",
+         "cloudFiles.schemaEvolutionMode": "none",
+         "header": "true"
+      },
+      "bronze_data_quality_expectations_json_prod": "/Volumes/dlt_meta/raw/raw_files/config/dqe/product/products.json",
+      "bronze_catalog_quarantine_prod": "dlt_meta",
+      "bronze_database_quarantine_prod": "bronze_v1",
+      "bronze_quarantine_table": "products_quarantine",
+      "bronze_quarantine_table_comment": "products quarantine bronze table",
+      "bronze_quarantine_table_cluster_by": [
+         "product_id"
+      ],
+      "silver_catalog_prod": "dlt_meta",
+      "silver_database_prod": "silver_v1",
+      "silver_table": "products",
+      "silver_table_comment": "products silver table",
+      "silver_cdc_apply_changes": {
+         "keys": [
+            "product_id"
+         ],
+         "sequence_by": "product_id",
+         "scd_type": "1"
+      },
+      "silver_transformation_json_prod": "/Volumes/dlt_meta/raw/raw_files/config/transformation/silver_transformations.json",
+      "silver_data_quality_expectations_json_prod": "/Volumes/dlt_meta/raw/raw_files/config/dqe/product/products_silver_dqe.json",
+      "gold_catalog_prod": "dlt_meta",
+      "gold_database_prod": "gold_v1",
+      "gold_table": "products_gold",
+      "gold_transformation_json_prod": "/Volumes/dlt_meta/raw/raw_files/config/transformation/gold_transformations.json",
+      "gold_transformation_json_dev": "/Volumes/dlt_meta/raw/raw_files/config/transformation/gold_transformations.json",
+      "gold_data_quality_expectations_json_prod": "/Volumes/dlt_meta/raw/raw_files/config/dqe/product/product_gold_dqe.json",
+      "gold_data_quality_expectations_json_dev": "/Volumes/dlt_meta/raw/raw_files/config/dqe/product/product_gold_dqe.json"
+   },
+   {
+      "data_flow_id": "104",
+      "data_flow_group": "A1",
+      "source_system": "mysql",
+      "source_format": "cloudFiles",
+      "source_details": {
+         "source_database": "stores",
+         "source_table": "stores",
+         "source_path_prod": "/Volumes/dlt_meta/raw/raw_files/data/stores/",
+         "source_schema_path": "/Volumes/dlt_meta/raw/raw_files/ddl/stores.ddl"
+      },
+      "bronze_catalog_prod": "dlt_meta",
+      "bronze_database_prod": "bronze_v1",
+      "bronze_table": "stores",
+      "bronze_table_comment": "stores bronze table",
+      "bronze_reader_options": {
+         "cloudFiles.format": "csv",
+         "cloudFiles.rescuedDataColumn": "_rescued_data",
+         "cloudFiles.schemaEvolutionMode": "none",
+         "header": "true"
+      },
+      "bronze_data_quality_expectations_json_prod": "/Volumes/dlt_meta/raw/raw_files/config/dqe/store/stores.json",
+      "bronze_catalog_quarantine_prod": "dlt_meta",
+      "bronze_database_quarantine_prod": "bronze_v1",
+      "bronze_quarantine_table": "stores_quarantine",
+      "bronze_quarantine_table_comment": "stores quarantine bronze table",
+      "bronze_quarantine_table_cluster_by": [
+         "store_id"
+      ],
+      "silver_catalog_prod": "dlt_meta",
+      "silver_database_prod": "silver_v1",
+      "silver_table": "stores",
+      "silver_table_comment": "stores silver table",
+      "silver_cdc_apply_changes": {
+         "keys": [
+            "store_id"
+         ],
+         "sequence_by": "store_id",
+         "scd_type": "1"
+      },
+      "silver_transformation_json_prod": "/Volumes/dlt_meta/raw/raw_files/config/transformation/silver_transformations.json",
+      "silver_data_quality_expectations_json_prod": "/Volumes/dlt_meta/raw/raw_files/config/dqe/store/stores_silver_dqe.json",
+      "gold_catalog_prod": "dlt_meta",
+      "gold_database_prod": "gold_v1",
+      "gold_table": "stores_gold",
+      "gold_transformation_json_prod": "/Volumes/dlt_meta/raw/raw_files/config/transformation/gold_transformations.json",
+      "gold_transformation_json_dev": "/Volumes/dlt_meta/raw/raw_files/config/transformation/gold_transformations.json",
+      "gold_data_quality_expectations_json_prod": "/Volumes/dlt_meta/raw/raw_files/config/dqe/store/store_gold_dqe.json",
+      "gold_data_quality_expectations_json_dev": "/Volumes/dlt_meta/raw/raw_files/config/dqe/store/store_gold_dqe.json"
+   }
+]
