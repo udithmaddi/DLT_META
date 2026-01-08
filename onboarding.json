@@ -52,8 +52,7 @@
       "gold_table": "customers_gold",
       "gold_transformation_json_prod": "/Volumes/dlt_meta/raw/raw_files/config/transformation/gold_transformations.json",
       "gold_transformation_json_dev": "/Volumes/dlt_meta/raw/raw_files/config/transformation/gold_transformations.json",
-      "gold_data_quality_expectations_json_prod": "/Volumes/dlt_meta/raw/raw_files/config/dqe/customer/customer_gold_dqe.json",
-      "gold_data_quality_expectations_json_dev": "/Volumes/dlt_meta/raw/raw_files/config/dqe/customer/customer_gold_dqe.json"
+      "gold_data_quality_expectations_json_prod": "/Volumes/dlt_meta/raw/raw_files/config/dqe/customer/customer_gold_dqe.json"
    },
    {
       "data_flow_id": "101",
@@ -108,8 +107,7 @@
       "gold_table": "transactions_gold",
       "gold_transformation_json_prod": "/Volumes/dlt_meta/raw/raw_files/config/transformation/gold_transformations.json",
       "gold_transformation_json_dev": "/Volumes/dlt_meta/raw/raw_files/config/transformation/gold_transformations.json",
-      "gold_data_quality_expectations_json_prod": "/Volumes/dlt_meta/raw/raw_files/config/dqe/transaction/transaction_gold_dqe.json",
-      "gold_data_quality_expectations_json_dev": "/Volumes/dlt_meta/raw/raw_files/config/dqe/transaction/transaction_gold_dqe.json"
+      "gold_data_quality_expectations_json_prod": "/Volumes/dlt_meta/raw/raw_files/config/dqe/transaction/transaction_gold_dqe.json"
    },
    {
       "data_flow_id": "103",
@@ -158,8 +156,7 @@
       "gold_table": "products_gold",
       "gold_transformation_json_prod": "/Volumes/dlt_meta/raw/raw_files/config/transformation/gold_transformations.json",
       "gold_transformation_json_dev": "/Volumes/dlt_meta/raw/raw_files/config/transformation/gold_transformations.json",
-      "gold_data_quality_expectations_json_prod": "/Volumes/dlt_meta/raw/raw_files/config/dqe/product/product_gold_dqe.json",
-      "gold_data_quality_expectations_json_dev": "/Volumes/dlt_meta/raw/raw_files/config/dqe/product/product_gold_dqe.json"
+      "gold_data_quality_expectations_json_prod": "/Volumes/dlt_meta/raw/raw_files/config/dqe/product/product_gold_dqe.json"
    },
    {
       "data_flow_id": "104",
@@ -208,7 +205,6 @@
       "gold_table": "stores_gold",
       "gold_transformation_json_prod": "/Volumes/dlt_meta/raw/raw_files/config/transformation/gold_transformations.json",
       "gold_transformation_json_dev": "/Volumes/dlt_meta/raw/raw_files/config/transformation/gold_transformations.json",
-      "gold_data_quality_expectations_json_prod": "/Volumes/dlt_meta/raw/raw_files/config/dqe/store/store_gold_dqe.json",
-      "gold_data_quality_expectations_json_dev": "/Volumes/dlt_meta/raw/raw_files/config/dqe/store/store_gold_dqe.json"
+      "gold_data_quality_expectations_json_prod": "/Volumes/dlt_meta/raw/raw_files/config/dqe/store/store_gold_dqe.json"
    }
 ]
