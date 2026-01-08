@@ -219,7 +219,6 @@ class DataflowSpecUtils:
         "appendFlowsSchemas",
         "applyChangesFromSnapshot",
         "clusterBy",
-        "clusterBy",
         "sinks"
     ]
 
